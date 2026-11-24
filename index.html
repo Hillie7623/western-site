@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Western — сайты, игры и утилиты на заказ</title>
+<meta name="description" content="Студия разработки Western: делаем сайты, игры и утилиты на заказ.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Unbounded:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#141414; --surface:#1d1c1b; --line:#34322f; --muted:#8f8b84; --text:#e9e4da;
+  --sand:#d2b48c; --dune:#a98b62; --ink:#141414;
+  color-scheme: dark;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#e6dfd2; --surface:#ddd5c5; --line:#c4baa6; --muted:#6d675c; --text:#1b1a18;
+    --sand:#8a6a3d; --dune:#b08d57; --ink:#e6dfd2; color-scheme: light;
+  }
+}
+:root[data-theme="light"]{
+  --bg:#e6dfd2; --surface:#ddd5c5; --line:#c4baa6; --muted:#6d675c; --text:#1b1a18;
+  --sand:#8a6a3d; --dune:#b08d57; --ink:#e6dfd2; color-scheme: light;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 17px/1.6 "Manrope",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--sand);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:"Unbounded","Manrope",system-ui,sans-serif;font-weight:400;margin:0;letter-spacing:-.02em;line-height:1.1}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:"Unbounded",sans-serif;font-size:18px;text-decoration:none;letter-spacing:-.01em}
+nav{display:flex;gap:28px;font-size:15px;color:var(--muted)}
+nav a{text-decoration:none}
+nav a:hover{color:var(--text)}
+
+.hero{padding:96px 0 0;overflow:hidden}
+.hero h1{font-size:clamp(38px,7.2vw,92px);max-width:13ch}
+.hero p{max-width:46ch;color:var(--muted);margin:32px 0 40px;font-size:19px}
+.btn{display:inline-block;background:var(--sand);color:var(--ink);padding:15px 28px;border-radius:2px;text-decoration:none;font-weight:600;font-size:16px;border:0;cursor:pointer;font-family:inherit}
+.btn:hover{background:var(--dune)}
+.btn.ghost{background:none;color:var(--text);border:1px solid var(--line);margin-left:10px}
+.btn.ghost:hover{border-color:var(--sand);background:none}
+.dunes{display:block;width:100%;height:auto;margin-top:72px}
+
+section{padding:112px 0}
+.head{display:grid;grid-template-columns:1fr 2fr;gap:40px;margin-bottom:56px}
+.head h2{font-size:clamp(26px,3.6vw,40px)}
+.head p{margin:0;color:var(--muted);max-width:52ch}
+
+.rows{border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding:36px 0;border-bottom:1px solid var(--line)}
+.row h3{font-size:24px}
+.row p{margin:0 0 14px;max-width:56ch}
+.row ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.row li{font-size:14px;color:var(--muted);border:1px solid var(--line);padding:4px 12px;border-radius:99px}
+
+.band{background:var(--surface)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;counter-reset:s;margin:0;padding:0;list-style:none}
+.steps li{counter-increment:s;border-top:2px solid var(--dune);padding-top:20px}
+.steps li::before{content:counter(s);font-family:"Unbounded",sans-serif;color:var(--sand);font-size:15px;display:block;margin-bottom:14px}
+.steps h3{font-size:19px;margin-bottom:8px}
+.steps p{margin:0;color:var(--muted);font-size:15px}
+
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.facts h3{font-size:20px;margin-bottom:10px}
+.facts p{margin:0;color:var(--muted)}
+
+.contact{text-align:left}
+.contact h2{font-size:clamp(32px,6vw,72px);max-width:14ch}
+.contact .mail{display:block;margin:36px 0 28px;font-family:"Unbounded",sans-serif;font-size:clamp(18px,3vw,30px);color:var(--sand);text-decoration:none;word-break:break-all}
+.contact .mail:hover{text-decoration:underline}
+.contact p{color:var(--muted);max-width:48ch;margin:0}
+
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:820px){
+  nav{display:none}
+  .head,.row{grid-template-columns:1fr;gap:16px}
+  .steps{grid-template-columns:1fr 1fr}
+  .facts{grid-template-columns:1fr;gap:28px}
+  section{padding:80px 0}
+  .hero{padding-top:64px}
+  .btn.ghost{margin:12px 0 0}
+}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.dunes *{animation:none!important}}
+.dune-a{animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(-24px)}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Western</a>
+    <nav>
+      <a href="#uslugi">Услуги</a>
+      <a href="#process">Процесс</a>
+      <a href="#pochemu">Почему мы</a>
+      <a href="#kontakty">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <h1>Цифровые продукты, собранные под вас</h1>
+      <p>Western — небольшая студия. Мы делаем сайты, игры и утилиты на заказ: от идеи до работающего релиза.</p>
+      <a class="btn" href="#kontakty">Обсудить проект</a>
+      <a class="btn ghost" href="#uslugi">Что мы делаем</a>
+    </div>
+    <svg class="dunes" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path class="dune-a" d="M-40 150 C 160 70, 340 70, 540 130 S 900 190, 1100 110 S 1380 60, 1500 120 L1500 220 L-40 220Z" fill="#a98b62" opacity=".35"/>
+      <path d="M-20 170 C 200 110, 420 110, 640 160 S 1000 200, 1200 150 S 1400 120, 1460 150 L1460 220 L-20 220Z" fill="#d2b48c" opacity=".6"/>
+      <path d="M0 200 C 240 160, 520 170, 760 195 S 1200 215, 1440 185 L1440 220 L0 220Z" fill="#34322f"/>
+    </svg>
+  </div>
+
+  <section id="uslugi">
+    <div class="wrap">
+      <div class="head">
+        <h2>Что мы делаем</h2>
+        <p>Три направления, в которых мы сильны. Каждый проект ведёт один небольшой коллектив — без передачи между отделами.</p>
+      </div>
+      <div class="rows">
+        <div class="row">
+          <h3>Сайты</h3>
+          <div>
+            <p>Лендинги, корпоративные сайты, интернет-магазины и веб-приложения. Быстрые, адаптивные, с удобной админкой.</p>
+            <ul><li>Лендинги</li><li>Магазины</li><li>Личные кабинеты</li><li>Редизайн</li></ul>
+          </div>
+        </div>
+        <div class="row">
+          <h3>Игры</h3>
+          <div>
+            <p>Браузерные и мобильные игры, прототипы, обучающие и рекламные игры. Делаем механику, интерфейс и звук.</p>
+            <ul><li>Браузер</li><li>Мобильные</li><li>Прототипы</li><li>Геймификация</li></ul>
+          </div>
+        </div>
+        <div class="row">
+          <h3>Утилиты</h3>
+          <div>
+            <p>Программы для автоматизации: конвертеры, парсеры, боты, расширения для браузера и внутренние инструменты для команды.</p>
+            <ul><li>Десктоп</li><li>Боты</li><li>Расширения</li><li>Автоматизация</li></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="band">
+    <div class="wrap">
+      <div class="head">
+        <h2>Как мы работаем</h2>
+        <p>Четыре понятных шага. На каждом вы видите результат и можете повлиять на следующий.</p>
+      </div>
+      <ol class="steps">
+        <li><h3>Бриф</h3><p>Разбираем задачу, аудиторию и ограничения. Называем сроки и стоимость.</p></li>
+        <li><h3>Прототип</h3><p>Показываем структуру и ключевые экраны до начала разработки.</p></li>
+        <li><h3>Разработка</h3><p>Собираем продукт частями и регулярно показываем рабочие версии.</p></li>
+        <li><h3>Запуск</h3><p>Публикуем, обучаем вас и остаёмся на связи для доработок.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="pochemu">
+    <div class="wrap">
+      <div class="head">
+        <h2>Почему Western</h2>
+        <p>Мы выбираем простое и надёжное. Лишнее убираем.</p>
+      </div>
+      <div class="facts">
+        <div><h3>Минимализм</h3><p>Чистый интерфейс и лёгкий код. Продукт делает одно дело и делает его хорошо.</p></div>
+        <div><h3>Прозрачность</h3><p>Фиксированная смета, понятный график и доступ к рабочей версии с первой недели.</p></div>
+        <div><h3>Ваш код</h3><p>Все исходники и права переходят к вам после сдачи проекта.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakty" class="band">
+    <div class="wrap contact">
+      <h2>Расскажите, что хотите создать</h2>
+      <a class="mail" href="mailto:vladikk387@gmail.com">vladikk387@gmail.com</a>
+      <p>Опишите задачу в паре предложений. Ответим в течение рабочего дня и предложим формат работы.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Western</span>
+    <span>Сайты, игры и утилиты на заказ</span>
+  </div>
+</footer>
+</body>
+</html>
